@@ -21,6 +21,7 @@ def my_sum(a):
 
 
 a = 1
+my_sum2 = 0
 while a != 0:
     inp_str = input('Введите строку чисел через пробел: ').split()
     my_sum2 = my_sum2 + my_sum(inp_str)
