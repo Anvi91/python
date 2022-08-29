@@ -34,17 +34,20 @@ class Cell:
     def __init__(self, quantity):
         self.quantity = int(quantity)
 
+    def __str__(self):
+        return f'{self.quantity}'
+
     def __add__(self, other):
-        return f'Результат сложения: {Cell(self.quantity + other.quantity)}'
+        return f'Результат сложения: {str(Cell(self.quantity + other.quantity))}'
 
     def __sub__(self, other):
         if (self.quantity - other.quantity) > 0:
-            return print(f'Разность ячеек:{self.quantity - other.quantity}')
+            return f'Разность ячеек:{self.quantity - other.quantity}'
         else:
-            print(f'Разность количества ячеек меньше или равно 0')
+            return f'Разность количества ячеек меньше или равно 0'
 
     def __mul__(self, other):
-        return f'Результат умножения{Cell(int(self.quantity * other.quantity))}'
+        return f'Результат умножения: {Cell(int(self.quantity * other.quantity))}'
 
     def __truediv__(self, other):
         return f'Результат деления: {Cell(round(self.quantity // other.quantity))}'
@@ -52,7 +55,7 @@ class Cell:
     def make_order(self, quantity_row):
         list = ''
         i = 1
-        while i < (self.quantity+1):
+        while i < (self.quantity + 1):
             if i % quantity_row == 0:
                 list += '*'
                 list += '\n'
@@ -63,4 +66,12 @@ class Cell:
 
 
 a = Cell(14)
+b = Cell(10)
+c = Cell(5)
+d = Cell(20)
+print(a + b)
+print(b - c)
+print(c - b)
+print(c * d)
+print(d / c)
 a.make_order(3)
