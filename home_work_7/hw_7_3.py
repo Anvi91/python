@@ -53,16 +53,16 @@ class Cell:
         return f'Результат деления: {Cell(round(self.quantity // other.quantity))}'
 
     def make_order(self, quantity_row):
-        list = ''
+        my_list = ''
         i = 1
         while i < (self.quantity + 1):
             if i % quantity_row == 0:
-                list += '*'
-                list += '\n'
+                my_list += '*'
+                my_list += '\n'
             else:
-                list += '*'
+                my_list += '*'
             i += 1
-        return print(list)
+        return print(my_list)
 
 
 a = Cell(14)
